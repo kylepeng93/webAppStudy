@@ -8,9 +8,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
-@RequestMapping("/")
 public class IndexController {
-    @GetMapping("/index")
+    @GetMapping("/")
     public String sayHello(String name) {
         return "index";
     }
