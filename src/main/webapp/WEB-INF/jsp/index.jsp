@@ -1,16 +1,15 @@
-<%@include file="./common/head.jsp" %>
-<%@include file="./common/tag.jsp" %>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <html>
 <head>
-  <title>JSTL x:out 标签</title>
+	<meta charset="UTF-8">
+   <title>JSTL x:out 标签</title>
 </head>
 <body>
 <h3>Books Info:</h3>
 <c:set var="xmltext">
   <books>
     <book>
-      <name>Padam History</name>
+      <name>Padam 历史</name>
       <author>ZARA</author>
       <price>100</price>
     </book>
