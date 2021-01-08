@@ -16,12 +16,12 @@ public class BookServiceImpl implements BookService {
     private BookMapper bookMapper;
     @Override
     public Book getById(long bookId) {
-        return null;
+        return bookMapper.queryById(bookId);
     }
 
     @Override
     public List<Book> getList() {
-        return null;
+        return bookMapper.queryAll();
     }
 
     @Override

@@ -3,36 +3,32 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.linux4fun.mapper.BookMapper">
+    <resultMap id="bookInfo" type="book">
+        <id column="id" property="bookId" />
+        <result column="name" property="name" />
+        <result column="number" property="number" />
+    </resultMap>
     <!-- 目的：为dao接口方法提供sql语句配置 -->
-    <select id="queryById" resultType="Book" parameterType="long">
+    <select id="queryById" resultMap="bookInfo">
         <!-- 具体的sql -->
         SELECT
-        book_id,
+        id,
         name,
         number
         FROM
         book
         WHERE
-        book_id = #{bookId}
+        id = #{bookId}
     </select>
 
-    <select id="queryAll" resultType="Book">
+    <select id="queryAll" resultMap="bookInfo">
         SELECT
-        book_id,
+        id,
         name,
         number
         FROM
         book
-        ORDER BY
-        book_id
-        LIMIT #{offset}, #{limit}
+        ORDER BY id
     </select>
 
-    <update id="reduceNumber">
-        UPDATE book
-        SET number = number - 1
-        WHERE
-        book_id = #{bookId}
-        AND number > 0
-    </update>
 </mapper>
