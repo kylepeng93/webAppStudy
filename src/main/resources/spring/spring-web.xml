@@ -10,14 +10,23 @@
 	http://www.springframework.org/schema/mvc
 	http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
     <!-- enable annotation mode -->
-    <context:component-scan base-package="com.linux4fun.controller"/>
-
-    <mvc:annotation-driven />
+    <context:component-scan base-package="com.linux4fun"/>
+    
+    
+    <bean id="myBeansValidator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
+    <mvc:annotation-driven validator="myBeansValidator"/>
 
     <!-- static resource is default to servlet config, eg: js,gif,png -->
     <!-- enable use "/" to mapping -->
-    <mvc:default-servlet-handler />
+    <!-- <mvc:default-servlet-handler /> -->
+    <mvc:resources mapping="/**" location="/assets" cache-period="31556926"/>
 
+	<bean id="employeeValidator" class="com.linux4fun.validator.EmployeeFormValidator" />
+	<!-- 消息本地化 -->
+	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basename" value="classpath:message" />
+		<property name="defaultEncoding" value="UTF-8" />
+	</bean>
     <!-- config view resolver -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />

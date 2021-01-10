@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
+<%@include file="./common/tag.jsp" %>
 <html>
 <head>
-	<meta charset="UTF-8">
-   <title>JSTL x:out 标签</title>
+	<%@include file="./common/bootstrap.jsp" %>
+   <title>首页</title>
 </head>
 <body>
 <h3>Books Info:</h3>
@@ -27,5 +28,6 @@
 <br>
 <b>The price of the second book</b>:
 <x:out select="$output/books/book[2]/price" />
+<script type="text/javascript" src="assets/js/index.js"></script>
 </body>
 </html>

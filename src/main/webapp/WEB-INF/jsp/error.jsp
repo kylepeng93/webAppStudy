@@ -16,5 +16,9 @@
   			${ste} 
   		</c:forEach>
    -->
+   <script>
+   		console.log("<%=basePath%>");
+   </script>
+   <script type="text/javascript" src="assets/js/error.js"></script>
 </body>
 </html>

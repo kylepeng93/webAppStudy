@@ -27,6 +27,7 @@ public class GlobalControllerExceptionHandler {
 
     @ExceptionHandler(value = Exception.class)
     public ModelAndView defaultErrorHandler(HttpServletRequest request, Exception e) throws Exception {
+    	// 查询该异常是否已被其他异常处理方法所捕获，只有不被捕获的场合才会走后面的流程。
         if (AnnotationUtils.findAnnotation(e.getClass(), ResponseStatus.class) != null) {
             throw e;
         }

@@ -5,7 +5,12 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(value = HttpStatus.NOT_FOUND, reason = "没有这本书哦")
 public class BookException extends RuntimeException {
-    public BookException(String message) {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 854108843575538988L;
+
+	public BookException(String message) {
         super(message);
     }
 }

@@ -1,4 +1,3 @@
-<%@include file="./common/head.jsp" %>
 <%@include file="./common/tag.jsp" %>
 <!DOCTYPE html>
 <html>

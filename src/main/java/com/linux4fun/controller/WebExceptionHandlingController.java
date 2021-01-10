@@ -16,14 +16,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.linux4fun.exception.BookException;
+
 
 @Controller
 public class WebExceptionHandlingController {
 	Logger logger  = LoggerFactory.getLogger(WebExceptionHandlingController.class);
 	
 	@GetMapping("/exception")
-	public String helloException() throws Exception {
-		throw new Exception();
+	public String helloException() {
+		throw new BookException("查无此书");
 	}
 	/**
 	 * 定义数据完整性异常处理方法
@@ -49,15 +51,15 @@ public class WebExceptionHandlingController {
 	 * @param ex
 	 * @return
 	 */
-	@ExceptionHandler(Exception.class)
-	public ModelAndView handleError(HttpServletRequest req, Exception ex) {
-		logger.error("Request:" + req.getRequestURL() + " raised " + ex);
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("exception", ex);
-		mav.addObject("url", req.getRequestURL());
-		mav.setViewName("error");
-		return mav;
-	}
+//	@ExceptionHandler(Exception.class)
+//	public ModelAndView handleError(HttpServletRequest req, Exception ex) {
+//		logger.error("Request:" + req.getRequestURL() + " raised " + ex);
+//		ModelAndView mav = new ModelAndView();
+//		mav.addObject("exception", ex);
+//		mav.addObject("url", req.getRequestURL());
+//		mav.setViewName("error");
+//		return mav;
+//	}
 	
 	
 }
